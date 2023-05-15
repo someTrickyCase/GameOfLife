@@ -15,5 +15,5 @@ module.exports = {
     filename: "bundle.js",
   },
   plugins: [new HtmlWebpackPlugin()],
-  mode: "production",
+  mode: "development",
 };
