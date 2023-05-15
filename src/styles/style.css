@@ -1,0 +1,268 @@
+@import "./charset.css";
+@import "./fonts.css";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Helpers */
+.hide {
+  /* display: none; */
+  visibility: hidden;
+  transform: scale(0);
+}
+
+.pressed {
+  background-color: #03622b !important;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 100%;
+  height: 100vh;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 1.6rem;
+
+  background-color: #222;
+  overflow: hidden;
+}
+
+/* Title */
+
+.title {
+  margin-bottom: 7rem;
+  margin-top: -4rem;
+
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #dfdfdf;
+}
+
+.title::before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 7rem;
+  width: 18rem;
+  background-color: #03622b;
+  transform: translate(-8%, -5%) rotate(6deg);
+  border-radius: 5px;
+
+  z-index: -1000;
+}
+
+.hightlight {
+  color: #03622b;
+  font-size: 5rem;
+}
+
+/* Main Field  */
+
+.main-field::before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 65rem;
+  width: 65rem;
+  background-color: rgba(170, 170, 170, 0.18);
+
+  border-radius: 2rem;
+
+  transform: translate(-2.5rem, -2.5rem);
+  z-index: -1000;
+}
+
+.main-field {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+  width: 60rem;
+  height: 60rem;
+  background-color: transparent;
+  overflow: hidden;
+
+  border-radius: 1.5rem;
+  border: 1px solid #aaa;
+
+  margin-bottom: 10rem;
+}
+
+.fields-cell {
+  background-color: #222;
+  border: 1px solid #aaa;
+}
+
+.pressed-cells {
+  background-color: #05a146;
+}
+
+/* Control Buttons */
+
+.control-buttons-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.control-buttons-container::before {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 5rem;
+  width: 22rem;
+  background-color: rgba(170, 170, 170, 0.18);
+  transform: translate(-8%, -12%);
+  border-radius: 5px;
+
+  z-index: -1000;
+}
+
+.button {
+  color: #aaa;
+  font-weight: 800;
+
+  outline: none;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  background: transparent;
+
+  transition: all 0.06s linear;
+  font-family: inherit;
+}
+
+.button:hover {
+  background-color: #aaa;
+  color: #222;
+}
+
+.button:active {
+  transform: scale(0.99);
+}
+
+/* Options button */
+
+.button--open-popup {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #03622b;
+  border: 2px solid #03622b;
+}
+
+.button--open-popup:hover {
+  background-color: #03622b;
+  color: #dfdfdf;
+}
+
+/* Popaup window */
+
+.options-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 3rem;
+  left: 3rem;
+
+  background-color: #222;
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+  border: 2px solid #aaa;
+}
+
+.button--close-popup {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  left: 100%;
+  transform: translate(-2rem, -0.5rem);
+
+  width: 2rem;
+  height: 1rem;
+}
+
+.button--close-popup:active {
+  transform: scale();
+}
+
+.slider-label {
+  color: #aaa;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: inherit;
+  font-size: 1.4rem;
+
+  align-self: center;
+  margin-bottom: 2rem;
+}
+
+.rangevalue {
+  color: #03622b;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.8rem;
+
+  align-self: center;
+  margin-bottom: -0.5rem;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 30rem;
+  height: 0.6rem;
+  border-radius: 100rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.6);
+
+  margin-bottom: 4rem;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #03622b;
+  height: 1.2rem;
+  width: 2rem;
+  border-radius: 5px;
+}
+
+.button--apply {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  width: 12rem;
+
+  color: #03622b;
+  border: 2px solid #03622b;
+}
+
+.button--apply:hover {
+  background-color: #03622b;
+  color: #dfdfdf;
+}
