@@ -10,9 +10,10 @@
 
 /* Helpers */
 .hide {
-  /* display: none; */
+  display: none !important;
   visibility: hidden;
-  transform: scale(0);
+  height: 0 !important;
+  transform: scale(0) !important;
 }
 
 .pressed {
@@ -20,6 +21,8 @@
 }
 
 html {
+  height: 100%;
+  width: 100%;
   font-size: 62.5%;
 }
 
@@ -29,21 +32,78 @@ body {
   align-items: center;
   justify-content: center;
 
-  max-width: 100%;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 
   font-family: "Rubik", sans-serif;
   font-size: 1.6rem;
 
   background-color: #222;
-  overflow: hidden;
+  overflow: clip;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 50%;
+    overflow: hidden;
+  }
+
+  .title {
+    font-size: 3rem !important;
+  }
+
+  .title::before {
+    height: 4rem !important;
+    width: 15rem !important;
+    top: 0.5rem !important;
+  }
+
+  .hightlight {
+    font-size: 4rem !important;
+  }
+
+  .main-field {
+    height: 40rem !important;
+    width: 40rem !important;
+  }
+
+  .main-field::before {
+    height: 42rem !important;
+    width: 42rem !important;
+    transform: translate(
+      -1rem,
+      -1rem
+    ) !important;
+  }
+
+  .control-buttons-container {
+    top: 80vh !important;
+  }
+
+  .control-buttons-container::before {
+    transform: translate(
+      -0.4rem,
+      -0.3rem
+    ) !important;
+  }
+
+  .button--open-popup {
+    top: 90vh !important;
+    left: calc(50vw - 55px) !important;
+  }
+
+  .options-popup {
+    top: 73vh !important;
+    left: 6.4rem !important;
+    z-index: 1 !important;
+  }
 }
 
 /* Title */
 
 .title {
-  margin-bottom: 7rem;
-  margin-top: -4rem;
+  position: absolute;
+  top: 2rem;
 
   font-size: 4rem;
   font-weight: 800;
@@ -55,10 +115,11 @@ body {
   position: absolute;
   content: "";
   display: block;
-  height: 7rem;
+  height: 5rem;
   width: 18rem;
   background-color: #03622b;
-  transform: translate(-8%, -5%) rotate(6deg);
+  transform: rotate(4deg);
+  top: 0.2rem;
   border-radius: 5px;
 
   z-index: -1000;
@@ -77,15 +138,25 @@ body {
   display: block;
   height: 65rem;
   width: 65rem;
-  background-color: rgba(170, 170, 170, 0.18);
+  background-color: rgba(
+    170,
+    170,
+    170,
+    0.18
+  );
 
   border-radius: 2rem;
 
-  transform: translate(-2.5rem, -2.5rem);
+  transform: translate(
+    -2.5rem,
+    -2.5rem
+  );
   z-index: -1000;
 }
 
 .main-field {
+  /* position: relative; */
+
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -98,7 +169,7 @@ body {
   border-radius: 1.5rem;
   border: 1px solid #aaa;
 
-  margin-bottom: 10rem;
+  margin-bottom: 4rem;
 }
 
 .fields-cell {
@@ -113,8 +184,10 @@ body {
 /* Control Buttons */
 
 .control-buttons-container {
+  position: absolute;
   display: flex;
   gap: 1rem;
+  top: 90vh;
 }
 
 .control-buttons-container::before {
@@ -123,7 +196,12 @@ body {
   display: block;
   height: 5rem;
   width: 22rem;
-  background-color: rgba(170, 170, 170, 0.18);
+  background-color: rgba(
+    170,
+    170,
+    170,
+    0.18
+  );
   transform: translate(-8%, -12%);
   border-radius: 5px;
 

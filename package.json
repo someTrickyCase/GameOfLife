@@ -1,10 +1,10 @@
 {
   "name": "gameoflive2.0",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
+  "description": "game of live",
+  "main": "controller.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "dev": "webpack-dev-server",
     "build": "webpack"
   },
   "author": "",
